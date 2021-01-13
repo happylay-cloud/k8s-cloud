@@ -1,0 +1,26 @@
+[Unit]
+Description=containerd container runtime
+Documentation=https://containerd.io
+After=network.target local-fs.target
+
+[Service]
+ExecStartPre=-/sbin/modprobe overlay
+ExecStart=/usr/bin/containerd
+
+Type=notify
+Delegate=yes
+KillMode=process
+Restart=always
+
+# 由于内核中的记帐开销，具有非零的Limit*s会导致性能问题。
+# 我们建议使用cgroups进行容器本地记帐。
+LimitNPROC=infinity
+LimitCORE=infinity
+LimitNOFILE=1048576
+
+# 如果您的systemd版本不支持，请评论TasksMax。
+# 仅systemd 226及更高版本支持此版本。
+TasksMax=infinity
+
+[Install]
+WantedBy=multi-user.target

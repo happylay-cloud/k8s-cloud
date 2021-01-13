@@ -1,0 +1,16 @@
+{
+  "CN": "system:kube-controller-manager",
+  "key": {
+    "algo": "rsa",
+    "size": 4096
+  },
+  "names": [
+    {
+      "C": "CN",
+      "L": "Hefei",
+      "O": "system:kube-controller-manager",
+      "OU": "kubernetes",
+      "ST": "Anhui"
+    }
+  ]
+}

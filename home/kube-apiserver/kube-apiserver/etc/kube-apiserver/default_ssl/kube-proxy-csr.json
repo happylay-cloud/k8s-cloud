@@ -1,0 +1,16 @@
+{
+  "CN": "system:kube-proxy",
+  "key": {
+    "algo": "rsa",
+    "size": 4096
+  },
+  "names": [
+    {
+      "C": "CN",
+      "L": "Hefei",
+      "O": "system:node-proxy",
+      "OU": "kubernetes",
+      "ST": "Anhui"
+    }
+  ]
+}

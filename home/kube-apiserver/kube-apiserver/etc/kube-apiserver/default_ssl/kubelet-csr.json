@@ -1,0 +1,19 @@
+{
+  "CN": "system:node:kubelet",
+  "hosts": [
+  	"127.0.0.1"
+  ],
+  "key": {
+    "algo": "rsa",
+    "size": 4096
+  },
+  "names": [
+    {
+      "C": "CN",
+      "L": "Hefei",
+      "O": "system:nodes",
+      "OU": "kubernetes",
+      "ST": "Anhui"
+    }
+  ]
+}

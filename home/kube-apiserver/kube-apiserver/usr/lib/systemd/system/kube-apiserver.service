@@ -1,0 +1,44 @@
+[Unit]
+Description=Kubernetes API Server
+Documentation=https://github.com/kubernetes/kubernetes
+
+[Service]
+EnvironmentFile=-/etc/kube-apiserver/kube-apiserver.conf
+ExecStart=/usr/local/bin/kube-apiserver \
+  --advertise-address=${ADVERTISE_ADDRESS} \
+  --allow-privileged=${ALLOW_PRIVILEGED} \
+  --apiserver-count=${APISERVER_COUNT} \
+  --audit-log-maxage=${AUDIT_LOG_MAXAGE} \
+  --audit-log-maxbackup=${AUDIT_LOG_MAXBACKUP} \
+  --audit-log-maxsize=${AUDIT_LOG_MAXSIZE} \
+  --audit-log-path=${AUDIT_LOG_PATH} \
+  --authorization-mode=${AUTHORIZATION_MODE} \
+  --bind-address=${BIND_ADDRESS} \
+  --secure-port=${SECURE_PORT} \
+  --client-ca-file=${CLIENT_CA_FILE} \
+  --enable-admission-plugins=${ENABLE_ADMISSION_PLUGINS} \
+  --etcd-cafile=${ETCD_CAFILE} \
+  --etcd-certfile=${ETCD_CERTFILE} \
+  --etcd-keyfile=${ETCD_KEYFILE} \
+  --etcd-servers=${ETCD_SERVERS} \
+  --event-ttl=${EVENT_TTL} \
+  --encryption-provider-config=${ENCRYPTION_PROVIDER_CONFIG} \
+  --kubelet-certificate-authority=${KUBELET_CERTIFICATE_AUTHORITY} \
+  --kubelet-client-certificate=${KUBELET_CLIENT_CERTIFICATE} \
+  --kubelet-client-key=${KUBELET_CLIENT_KEY} \
+  --kubelet-https=${KUBELET_HTTPS} \
+  --runtime-config=${RUNTIME_CONFIG} \
+  --service-account-key-file=${SERVICE_ACCOUNT_KEY_FILE} \
+  --service-cluster-ip-range=${SERVICE_CLUSTER_IP_RANGE} \
+  --service-node-port-range=${SERVICE_NODE_PORT_RANGE} \
+  --tls-cert-file=${TLS_CERT_FILE} \
+  --tls-private-key-file=${TLS_PRIVATE_KEY_FILE} \
+  --v=${V} \
+  --kubelet-preferred-address-types=${KUBELET_PREFERRED_ADDRESS_TYPES}
+
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+

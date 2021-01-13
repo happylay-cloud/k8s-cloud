@@ -1,0 +1,16 @@
+{
+  "CN": "admin",
+  "key": {
+    "algo": "rsa",
+    "size": 4096
+  },
+  "names": [
+    {
+      "C": "CN",
+      "L": "Hefei",
+      "O": "system:masters",
+      "OU": "kubernetes",
+      "ST": "Auhui"
+    }
+  ]
+}

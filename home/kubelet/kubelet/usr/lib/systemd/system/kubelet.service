@@ -1,0 +1,28 @@
+[Unit]
+Description=Kubernetes Kubelet
+Documentation=https://github.com/kubernetes/kubernetes
+After=containerd.service
+Requires=containerd.service
+
+[Service]
+ExecStart=/usr/local/bin/kubelet \
+  --address=0.0.0.0 \
+  --config=/etc/kubelet/kubelet-config.yaml \
+  --docker=unix:///var/run/docker.sock \
+  --docker-endpoint=unix:///var/run/docker.sock \
+  --image-pull-progress-deadline=2m \
+  --kubeconfig=/etc/kubelet/kubelet.kubeconfig \
+  --register-node=true \
+  --cgroup-driver=systemd \
+  --pod-infra-container-image=happylay/pause:3.2 \
+  --root-dir=/etc/kubelet/.system \
+  --v=2 \
+  --log-dir=/etc/kubelet/log \
+  --logtostderr=true
+  
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+

@@ -1,0 +1,16 @@
+{
+  "CN": "system:kube-scheduler",
+  "key": {
+    "algo": "rsa",
+    "size": 4096
+  },
+  "names": [
+    {
+      "C": "CN",
+      "L": "Hefei",
+      "O": "system:kube-scheduler",
+      "OU": "kubernetes",
+      "ST": "Anhui"
+    }
+  ]
+}
